@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JC'lesson</title>
+    {% include 'include/resources.include' %}
+    {% block header %}
+    {% endblock %}
+</head>
+<body>
+    <div id="navbar">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">JC' lesson</a>
+                    </div>
+                    <div>
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">主页</a> </li>
+                            <li><a href="#">文章</a></li>
+                            <li><a href="#">留言</a></li>
+                            <li><a href="#">关于</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2 left">
+                <div class="row text-center">
+                    <div class="head">
+                        <img src="../static/image/my.png" class="img-circle img-responsive text-center">
+                    </div>
+                    <h1>JC'Lesson</h1>
+                    <h1><small>This's my demo</small></h1>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="main">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{#    <footer class="cloud-footer">#}
+
+    <script>
+        $(document).ready(function(){
+            $('ul li').click(function(){
+                var first = $("li.active");
+                first.removeAttr("class", "active");
+                $(this).attr("class", "active");
+                return false;
+            })
+        })
+    </script>
+</body>
+</html>

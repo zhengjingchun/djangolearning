@@ -1,0 +1,14 @@
+{% load staticfiles %}
+<base href='{{BASE_HREF}}'/>
+<link href="{% static 'lib/css/bootstrap.css' %}" rel="stylesheet" media="screen">
+<link href="{% static 'lib/css/font-awesome.min.css' %}" rel="stylesheet" media="screen">
+<link href="{% static 'lib/css/bootstrap-clockpicker.min.css' %}" rel="stylesheet" media="screen">
+<link href="{% static 'lib/css/bootstrap-multiselect.css' %}" rel="stylesheet" media="screen">
+<link href="{% static 'css/common.css' %}" rel="stylesheet" media="screen">
+<script type="text/javascript" src="{% static 'lib/js/jquery-1.11.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/js/bootstrap.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/js/angular.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/js/angular-route.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/js/pinyinutil.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/js/bootstrap-clockpicker.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/js/bootstrap-multiselect.js' %}"></script>
