@@ -9,51 +9,53 @@
             </div>
             <div class="articleBody">
                 <p>
-                    在django中，提供了一个方法自动地将所有的静态文件（css，js，图片等）放在一起。
+                    这篇分享主要记录自己学习django及前端时候遇到的一些问题，和解决方法。不会一次写完，会边学边写，遇到觉得有用的问题就记录下来跟大家一起分享，也作为自己的备忘。如果一个问题有更好的解决方案，或者我说错的，那就快告诉我告诉我呀。
+                    目录
+                    django静态资源加载侧边栏的问题阴影的应用内容
+                    1.django静态资源加载
+                    一般写前端的网页，静态资源如css，js，图片等都是直接相对于***.html的，比如图片的引用：
+                    然而在django中，直接这样写部署到django服务器上之后，js，css无法正常加载，图片无法显示。这是因为在django的部署中，采用静态文件路径:STATICFILES_DIRS的部署方式，之前写的相对路径，绝对路径因为缺少静态文件路径而全部失效。
+                    解决方法：
+                    方法1：
+                    在setting.py文件最后加上
+                    STATIC_DIR = os.path.join(BASE_DIR, 'static')#设置静态文件路径STATICFILES_DIRS = (('css', os.path.join(STATIC_DIR, 'css').replace('\\', '/')),('js', os.path.join(STATIC_DIR, 'js').replace('\\', '/')),('image', os.path.join(STATIC_DIR, 'image').replace('\\', '/')),('upload', os.path.join(STATIC_DIR, 'upload').replace('\\', '/')),('lib', os.path.join(STATIC_DIR, 'lib').replace('\\', '/')))然后在urls.py引入staticfiles_urlpatterns
+                    from django.contrib.staticfiles.urls import staticfiles_urlpatterns在urls.py的最后设置静态文件路径
+                    urlpatterns += staticfiles_urlpatterns(),这时候，在前端代码中，只要按照之前写的相对路径就可以引用了。
+                    方法二：使用template标签的方式
+                    在setting.py文件最后加上
+                    STATIC_DIR = os.path.join(BASE_DIR, 'static')然后templates中使用的时候，加入标签就可以直接使用，代码如下：
+                    #直接使用{% load staticfiles %}<img src="{% static "images/hi.jpg" %}"/>参考文献：http://m.blog.csdn.net/blog/qingyuanluofeng/44877399
                 </p>
             </div>
-        </div>
-        <div class="articleBottom">
-            这里会是发表时间、作者、浏览次数、评论数、分类等
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="article">
-            <div class="page-header">
-                <h1>第一篇
-                    <small>django静态资源加载</small>
-                </h1>
-            </div>
-            <div class="articleBody">
-                <p>
-                    在django中，提供了一个方法自动地将所有的静态文件（css，js，图片等）放在一起。
-                </p>
-            </div>
-        </div>
-        <div class="articleBottom">
-            这里会是发表时间、作者、浏览次数、评论数、分类等
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="article">
-            <div class="page-header">
-                <h1>第一篇
-                    <small>django静态资源加载</small>
-                </h1>
-            </div>
-            <div class="articleBody">
-                <p>
-                    在django中，提供了一个方法自动地将所有的静态文件（css，js，图片等）放在一起。
-                </p>
-            </div>
-        </div>
-        <div class="articleBottom">
             <div>
-
+                <a href="#">Read More</a>
             </div>
-            这里会是发表时间、作者、浏览次数、评论数、分类等
+        </div>
+        <div class="articleBottom">
+            <div style="vertical-align: middle;line-height: 40px;">
+                <span class="articleMessege">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                    <time>2015-11-01</time>
+                </span>
+                <span class="articleMessege">
+                    <i class="glyphicon glyphicon-user"></i>
+                    <span>jc</span>
+                </span>
+                <span class="articleMessege">
+                    <i class="glyphicon glyphicon-folder-open"></i>
+                    <span>blog</span>
+                </span>
+                <span class="articleMessege">
+                    <i class="glyphicon glyphicon-comment"></i>
+                    <span>暂无评论</span>
+                </span>
+                <span class="articleMessege">
+                    <i class="glyphicon glyphicon-play"></i>
+                    <span>115</span>
+                    <span>阅读</span>
+                </span>
+            </div>
         </div>
     </div>
+
 {% endblock %}
