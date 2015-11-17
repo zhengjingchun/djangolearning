@@ -5,17 +5,15 @@ body {
 }
 
 .head {
-    padding-left: 100px;
-    padding-right: 100px;
 }
 .head img{
-    width: 80%;
+    width: 40%;
 }
 .sidebar {
     display: table-cell;
-    width: 30%;
+    width: 40%;
     min-width: 400px;
-     max-width: 400px;
+    max-width: 500px;
     background-color: #ffffff;
     padding-top: 100px;
     margin-top: 100px;
@@ -67,4 +65,24 @@ body {
     vertical-align: middle;
 }
 
+.card .try{
+    padding: 20px 20px 20px 20px;
+    width: 200px;
+    height: 100px;
+    background:blue;
+    transition:all 2s;
+    -moz-transition:all .5s; /* Firefox 4 */
+    -webkit-transition:all .5s; /* Safari and Chrome */
+    -o-transition:all .5s; /* Opera */
+}
+
+.try:hover{
+    transform:rotate(360deg) skew(0deg) scale(1.0) translate(100px, 0);
+    -webkit-transform:rotate(360deg) skew(0deg) scale(1.0) translate(100px, 0);
+    -moz-transform:rotate(360deg) skew(0deg) scale(1.0) translate(100px, 0);
+}
+
+.try .p1:hover{
+    background:yellow;
+}
 
