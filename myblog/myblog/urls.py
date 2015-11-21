@@ -13,19 +13,17 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import include, url
+from django.conf.urls import include, url, patterns
 from django.contrib import admin
-from basic.views import myblog
-from articles.views import articles
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import staticfiles
 import settings
 
-urlpatterns = [
+urlpatterns = patterns('',
+    url(r'', include('basic.ulrs')),
+    url(r'^articles/', include('articles.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'', myblog),
-    url(r'^articles/$', articles),
     # url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_DIR}, name='static'),
-]
+)
 
 urlpatterns += staticfiles_urlpatterns(),

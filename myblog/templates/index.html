@@ -1,6 +1,44 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="card">
+    <div>
+    <div class="sidebarContainer">
+        <div class="sidebar">
+            <div class="head">
+                <img src="../static/image/my.png" class="img-circle text-center">
+            </div>
+            <h1>JC'Lesson</h1>
+
+            <h1>
+                <small>This's my demo</small>
+            </h1>
+            <div style="height: 50px" align="center">
+                <input class="form-control" placeholder="Search"
+                       style="width: 60%; display: inline-block;">
+                <button class="btn btn-default" style="display: inline-block;"><i
+                        class="glyphicon glyphicon-search"></i> 提交
+                </button>
+            </div>
+            <div class="articleItem">
+                <h4>阅读排行</h4>
+                <ul>
+                    <li><a>第一的</a></li>
+                    <li><a>第二的</a></li>
+                    <li><a>第三的</a></li>
+                </ul>
+            </div>
+
+            <div class="articleItem">
+                <h4>最近文章</h4>
+                <ul>
+                    <li><a>时间最近的</a></li>
+                    <li><a>时间远点的</a></li>
+                    <li><a>时间最远的</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="card">
         <div class="article">
             <div class="page-header">
                 <h1>第一篇
@@ -68,5 +106,9 @@
             <p>fdslkajfd</p>
         </div>
     </div>
+
+    </div>
+</div>
+
 
 {% endblock %}

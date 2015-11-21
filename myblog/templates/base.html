@@ -8,64 +8,34 @@
     {% endblock %}
 </head>
 <body>
-<div id="navbar">
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">JC'demo</a>
-                </div>
-                <div>
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">主页</a></li>
-                        <li><a href="#">文章</a></li>
-                        <li><a href="#">留言</a></li>
-                        <li><a href="#">关于</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
-</div>
-<div>
-    <div class="sidebar" style="width: 400px">
-        <div class="head">
-            <img src="../static/image/my.png" class="img-circle text-center">
-        </div>
-        <h1>JC'Lesson</h1>
-
-        <h1>
-            <small>This's my demo</small>
-        </h1>
-        <div>
-            <div>
-                <input class="form-control" placeholder ="Search" class="inputBox" style="width: 60%;float: left; left: 5px; right: 5px">
-            </div>
-            <button class="btn btn-default" style="float: left"><i class="glyphicon glyphicon-search"></i> 提交</button>
-        </div>
+<nav class="nav">
+    <div class="center">
+        <ul>
+            <li><a>jc'demo</a></li>
+            <li class="current"><a>主页</a></li>
+            <li><a>文章</a></li>
+            <li><a>关于</a></li>
+        </ul>
     </div>
-    <div class="main">
-        {% block content %}{% endblock %}
-    </div>
-</div>
-
+</nav>
+{% block content %}{% endblock %}
 {#    <footer class="cloud-footer">#}
 
 <script>
     $(document).ready(function () {
-        $('ul li').click(function () {
-            var first = $('li.active');
-            first.removeAttr('class', 'active');
-            $(this).attr('class', 'active');
+        $('.nav ul li').click(function () {
+            var first = $('.nav ul li.current');
+            first.removeAttr('class', 'current');
+            $(this).attr('class', 'current');
             return false;
         });
 
         var changeHeaderOn = $('nav').height();
-        $(window).scroll(function(){
+        $(window).scroll(function () {
             var scrollY = $(document).scrollTop();
-            if (scrollY > changeHeaderOn){
+            if (scrollY > changeHeaderOn) {
                 $('nav').addClass("navShadow");
-            }else{
+            } else {
                 $('nav').removeClass("navShadow");
             }
         });
